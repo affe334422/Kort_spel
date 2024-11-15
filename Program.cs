@@ -51,24 +51,8 @@ sakta(mes3,tid);
 sakta(mes4,tid);
     vadhardeförkort(spelare4);
 
-
-string check;
-do{
-    string mes5 = "Dina kort";
-    sakta(mes5, tid);
-    vadhardeförkort(spelare1);
-
-    string mes6 = "Vilket kort vill du ta";
-    sakta(mes6,tid);
-    string kortetduvillha = Console.ReadLine();
-    check = kortetduvillha;
-
-    if(!spelare1.Contains(check)){
-        string mes8 = "Du har inte det kortet, välj ett annat";
-        sakta(mes8, tid);
-    }
-    
-}while(!spelare1.Contains(check));
+string check = "";
+duvillta(ref spelare1, ref check);
 
 
 string mes7 = "Vem vill du fråga, spelare 2, 3 eller 4. Skriv 2, 3 eller 4";
@@ -78,21 +62,43 @@ sakta(mes7, tid);
 int frågavilkenspelare = int.Parse(Console.ReadLine());
 
 if(frågavilkenspelare == 2){
-    DraKort_frånhand(ref spelare1, ref spelare2, check, frågavilkenspelare);
+    DraKort_frånhand(ref spelare1, ref spelare2, check, ref frågavilkenspelare);
 }
 
 if(frågavilkenspelare == 3){
-
+    DraKort_frånhand(ref spelare1, ref spelare3, check, ref frågavilkenspelare);
 }
 
 if(frågavilkenspelare == 4){
-
+    DraKort_frånhand(ref spelare1, ref spelare4, check, ref frågavilkenspelare);
 }
 
 
 
 
 // Funktion för att dra ett kort från kortleken och ta bort det från leken
+
+
+static void duvillta(ref List<string> spelare, ref string check){
+    int tid = 50;
+    do{
+        string mes5 = "Dina kort";
+        sakta(mes5, tid);
+        vadhardeförkort(spelare);
+
+        string mes6 = "Vilket kort vill du ta";
+        sakta(mes6,tid);
+        string kortetduvillha = Console.ReadLine();
+        check = kortetduvillha;
+
+        if(!spelare.Contains(check)){
+            string mes8 = "Du har inte det kortet, välj ett annat";
+            sakta(mes8, tid);
+        }
+        
+    }while(!spelare.Contains(check));
+}
+
 static string DraKort(List<string> kortlek, Random r){
     int index = r.Next(kortlek.Count);         // Dra ett slumpmässigt index
     string kort = kortlek[index];           // Få kortet på det indexet
@@ -100,9 +106,9 @@ static string DraKort(List<string> kortlek, Random r){
     return kort;                            // Returnera kortet
 }
 
-static void DraKort_frånhand(ref List<string> spelare, ref List<string> andrahand, string vilketkort, int a){
+static void DraKort_frånhand(ref List<string> spelare, ref List<string> andrahand, string vilketkort, ref int a){
     int hurmånga = 0;
-    string mes1 = "spelare" + a + " Hade " + hurmånga + " " + vilketkort;
+    int b = a;
 
     if(andrahand.Contains(vilketkort)){
         do{
@@ -110,13 +116,22 @@ static void DraKort_frånhand(ref List<string> spelare, ref List<string> andraha
             spelare.Add(vilketkort);
             hurmånga++;
         }while(andrahand.Contains(vilketkort));
-
+        string mes1 = "spelare" + a + " Hade " + hurmånga + " " + vilketkort + "a";
         sakta(mes1, 50);
+
     }
     else{
-        sakta(mes1, 50);
+        string mes2 = "spelare" + a + " Hade " + hurmånga + " " + vilketkort + "a";
+        sakta(mes2, 50);
+        b++;
     }
 
+    if(a==b){
+        string mes3 = "Du får välja igen";
+        sakta(mes3, 50);
+        duvillta(ref spelare, ref vilketkort);
+        DraKort_frånhand(ref spelare, ref andrahand, vilketkort, ref a);
+    }
     
 }
 
@@ -131,6 +146,7 @@ static void sakta(string mes, int tid){
 static void vadhardeförkort(List<string> spelare){
     foreach(string dinhand in spelare){
         Console.Write(dinhand + " ");
+        Thread.Sleep(50);
     }
     Console.WriteLine();
     Console.WriteLine();

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kort_spel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+644f90c6f68ed358a11ebe932a8c27dcf0bd5e65")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62976ab719ae637f1bb4d9bee3d9d59b634cb299")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kort_spel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kort_spel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

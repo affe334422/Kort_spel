@@ -12,3 +12,4 @@ C:\Users\alle07002\OneDrive - Växjö kommun\Skrivbordet\program\Kort_spel\obj\D
 C:\Users\alle07002\OneDrive - Växjö kommun\Skrivbordet\program\Kort_spel\obj\Debug\net8.0\Kort_spel.pdb
 C:\Users\alle07002\OneDrive - Växjö kommun\Skrivbordet\program\Kort_spel\obj\Debug\net8.0\Kort_spel.genruntimeconfig.cache
 C:\Users\alle07002\OneDrive - Växjö kommun\Skrivbordet\program\Kort_spel\obj\Debug\net8.0\ref\Kort_spel.dll
+C:\Users\alle07002\OneDrive - Växjö kommun\Skrivbordet\program\Kort_spel\obj\Debug\net8.0\Kort_spel.sourcelink.json
